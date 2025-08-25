@@ -30,8 +30,16 @@ export function FeaturesTabs({ features, className }: Props) {
       </TabsList>
       {features.map((feature) => (
         <TabsContent key={feature.title} value={feature.title}>
-          <div className="bg-card flex w-full justify-center rounded-lg border p-8 pb-0">
-            <Image src={feature.image} alt="App Image" width={304} height={445} />
+          <div className="bg-card flex w-full justify-center rounded-lg border pt-8 px-8 overflow-hidden h-[485px]">
+            <div className="w-[304px] h-full flex items-end justify-center">
+              <Image 
+                src={feature.image} 
+                alt="App Image" 
+                width={304} 
+                height={445}
+                className="object-contain object-bottom max-w-[304px] h-full"
+              />
+            </div>
           </div>
         </TabsContent>
       ))}

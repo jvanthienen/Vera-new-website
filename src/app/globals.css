@@ -6,7 +6,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-general-sans);
+  --font-serif: var(--font-sentient);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -43,6 +44,185 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --shadow-3xl: var(--shadow-3xl);
+  
+  /* Vera Color Palette */
+  --color-vera-background: #344033;
+  --color-vera-background-secondary: #1B251D;
+  --color-vera-text: #FFFFDF;
+  --color-vera-primary: #FFD600;
+  --color-vera-tint: #FFD600;
+  --color-vera-success: #717B68;
+  --color-vera-accent: #B1B59D;
+  --color-vera-icon: #717B68;
+  --color-vera-border: #717B68;
+  --color-vera-error: #FF6B6B;
+  --color-vera-warning: #FFD166;
+  --color-vera-gradient-top: #243226;
+  --color-vera-gradient-bottom: #1D281E;
+}
+
+/* Vera Brand Font Faces */
+@font-face {
+  font-family: 'GeneralSans';
+  src: url('/fonts/GeneralSans-Extralight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeneralSans';
+  src: url('/fonts/GeneralSans-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeneralSans';
+  src: url('/fonts/GeneralSans-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeneralSans';
+  src: url('/fonts/GeneralSans-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeneralSans';
+  src: url('/fonts/GeneralSans-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeneralSans';
+  src: url('/fonts/GeneralSans-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Sentient Font Family */
+@font-face {
+  font-family: 'Sentient';
+  src: url('/fonts/Sentient-Extralight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sentient';
+  src: url('/fonts/Sentient-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sentient';
+  src: url('/fonts/Sentient-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sentient';
+  src: url('/fonts/Sentient-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sentient';
+  src: url('/fonts/Sentient-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Italic variants for GeneralSans */
+@font-face {
+  font-family: 'GeneralSans';
+  src: url('/fonts/GeneralSans-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeneralSans';
+  src: url('/fonts/GeneralSans-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeneralSans';
+  src: url('/fonts/GeneralSans-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeneralSans';
+  src: url('/fonts/GeneralSans-SemiboldItalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeneralSans';
+  src: url('/fonts/GeneralSans-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Italic variants for Sentient */
+@font-face {
+  font-family: 'Sentient';
+  src: url('/fonts/Sentient-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sentient';
+  src: url('/fonts/Sentient-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sentient';
+  src: url('/fonts/Sentient-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sentient';
+  src: url('/fonts/Sentient-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
 }
 
 :root {
@@ -51,26 +231,48 @@
     0px 100px 80px 0px rgba(0, 0, 0, 0.04), 0px 41.778px 33.422px 0px rgba(0, 0, 0, 0.05),
     0px 22.336px 17.869px 0px rgba(0, 0, 0, 0.06), 0px 12.522px 10.017px 0px rgba(0, 0, 0, 0.08),
     0px 6.65px 5.32px 0px rgba(0, 0, 0, 0.09), 0px 2.767px 2.214px 0px rgba(0, 0, 0, 0.13);
-  --background: oklch(0.9551 0 0);
-  --foreground: oklch(0 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0 0 0);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.8945 0 0);
-  --secondary-foreground: oklch(0 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.6534 0 0);
-  --accent: oklch(0.5976 0.173 254.38);
-  --accent-foreground: oklch(0.909 0.0457 250.36);
-  --skeleton: oklch(0.97 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9188 0.0071 268.54);
-  --input: oklch(0.6667 0.02 268.99);
-  --ring: oklch(0.708 0 0);
-  --success: oklch(0.6758 0.0888 180.99);
+  
+  /* Font variables */
+  --font-general-sans: 'GeneralSans', system-ui, -apple-system, sans-serif;
+  --font-sentient: 'Sentient', serif;
+  
+  /* Vera Color Palette Variables */
+  --vera-background: #344033;
+  --vera-background-secondary: #1B251D;
+  --vera-text: #FFFFDF;
+  --vera-text-darker: #E8E8C5; /* Darker version of creamy color for subtle gradients */
+  --vera-primary: #FFD600;
+  --vera-tint: #FFD600;
+  --vera-success: #717B68;
+  --vera-accent: #B1B59D;
+  --vera-icon: #717B68;
+  --vera-border: #717B68;
+  --vera-error: #FF6B6B;
+  --vera-warning: #FFD166;
+  --vera-gradient-top: #243226;
+  --vera-gradient-bottom: #1D281E;
+  
+  /* Default theme using Vera colors */
+  --background: var(--vera-text);
+  --foreground: var(--vera-background);
+  --card: var(--vera-text);
+  --card-foreground: var(--vera-background);
+  --popover: var(--vera-text);
+  --popover-foreground: var(--vera-background);
+  --primary: var(--vera-primary);
+  --primary-foreground: var(--vera-background);
+  --secondary: var(--vera-accent);
+  --secondary-foreground: var(--vera-background);
+  --muted: var(--vera-accent);
+  --muted-foreground: var(--vera-background);
+  --accent: var(--vera-accent);
+  --accent-foreground: var(--vera-background);
+  --skeleton: var(--vera-accent);
+  --destructive: var(--vera-error);
+  --border: var(--vera-border);
+  --input: var(--vera-background-secondary);
+  --ring: var(--vera-border);
+  --success: var(--vera-success);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -82,44 +284,44 @@
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-border: var(--vera-border);
+  --sidebar-ring: var(--vera-border);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.7245 0.0928 214.57);
-  --accent-foreground: oklch(0.5807 0.0858 216.16);
-  --skeleton: oklch(0.269 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --success: oklch(0.6758 0.0888 180.99);
-  --chart-1: oklch(0.488 0.243 264.376);
+  --background: var(--vera-background);
+  --foreground: var(--vera-text);
+  --card: var(--vera-background-secondary);
+  --card-foreground: var(--vera-text);
+  --popover: var(--vera-background-secondary);
+  --popover-foreground: var(--vera-text);
+  --primary: var(--vera-primary);
+  --primary-foreground: var(--vera-background);
+  --secondary: var(--vera-accent);
+  --secondary-foreground: var(--vera-text);
+  --muted: var(--vera-background-secondary);
+  --muted-foreground: var(--vera-accent);
+  --accent: var(--vera-accent);
+  --accent-foreground: var(--vera-background);
+  --skeleton: var(--vera-background-secondary);
+  --destructive: var(--vera-error);
+  --border: var(--vera-border);
+  --input: var(--vera-background-secondary);
+  --ring: var(--vera-accent);
+  --success: var(--vera-success);
+  --chart-1: var(--vera-primary);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar: var(--vera-background);
+  --sidebar-foreground: var(--vera-text);
+  --sidebar-primary: var(--vera-primary);
+  --sidebar-primary-foreground: var(--vera-background);
+  --sidebar-accent: var(--vera-accent);
+  --sidebar-accent-foreground: var(--vera-background);
+  --sidebar-border: var(--vera-border);
+  --sidebar-ring: var(--vera-accent);
 }
 
 @layer base {
@@ -128,16 +330,121 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    font-family: var(--font-general-sans);
+    min-height: 100vh;
   }
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
-  body {
-    @apply bg-background text-foreground;
+  
+  /* Font Style Utilities */
+  .font-large-title {
+    font-family: var(--font-sentient);
+    font-size: 34px;
+    line-height: 41px;
+    font-weight: 700;
   }
+  
+  .font-title1 {
+    font-family: var(--font-sentient);
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 700;
+  }
+  
+  .font-title2 {
+    font-family: var(--font-sentient);
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 700;
+  }
+  
+  .font-title3 {
+    font-family: var(--font-sentient);
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 500;
+  }
+  
+  .font-body {
+    font-family: var(--font-general-sans);
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+  
+  .font-body-light {
+    font-family: var(--font-general-sans);
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 300;
+  }
+  
+  .font-body-medium {
+    font-family: var(--font-general-sans);
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 500;
+  }
+  
+  .font-body-small {
+    font-family: var(--font-general-sans);
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+  
+  .font-caption {
+    font-family: var(--font-general-sans);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+  }
+  
+  .font-button {
+    font-family: var(--font-general-sans);
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 600;
+  }
+  
+  .font-link {
+    font-family: var(--font-general-sans);
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+  
+  /* Vera Gradient Backgrounds */
+  .bg-vera-gradient {
+    background: linear-gradient(to bottom, var(--vera-gradient-top), var(--vera-gradient-bottom));
+  }
+  
+  .bg-vera-radial-blur {
+    background: radial-gradient(ellipse at center, var(--vera-text-darker) 0%, var(--vera-text) 30%, transparent 70%);
+  }
+  
+  .bg-vera-corner-blur {
+    background: 
+      radial-gradient(ellipse at top left, var(--vera-text-darker) 0%, var(--vera-text) 20%, transparent 60%), 
+      radial-gradient(ellipse at top right, var(--vera-text-darker) 0%, var(--vera-text) 20%, transparent 60%);
+  }
+  
+  /* Vera Color Utilities */
+  .bg-vera-background { background-color: var(--vera-background); }
+  .bg-vera-background-secondary { background-color: var(--vera-background-secondary); }
+  .text-vera-text { color: var(--vera-text); }
+  .text-vera-text-darker { color: var(--vera-text-darker); }
+  .text-vera-primary { color: var(--vera-primary); }
+  .text-vera-success { color: var(--vera-success); }
+  .text-vera-accent { color: var(--vera-accent); }
+  .text-vera-error { color: var(--vera-error); }
+  .text-vera-warning { color: var(--vera-warning); }
+  .border-vera-border { border-color: var(--vera-border); }
+  .border-vera-primary { border-color: var(--vera-primary); }
 }
 
 .marquee-mask {

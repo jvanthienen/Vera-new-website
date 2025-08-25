@@ -30,7 +30,7 @@ export function ProductDetails({ checkoutData, locale }: Props) {
             />
           )}
 
-          <h2 className="text-2xl leading-none font-semibold">{checkoutData.items[0].product.name}</h2>
+          <h2 className="font-serif text-2xl leading-none font-semibold">{checkoutData.items[0].product.name}</h2>
         </div>
         {numberOfPrices > 1 && (
           <p className="text-muted-foreground pt-1 text-sm whitespace-nowrap">+{numberOfPrices - 1} more</p>

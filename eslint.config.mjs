@@ -14,6 +14,15 @@ const eslintConfig = [
   {
     rules: {
       "@next/next/no-img-element": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { 
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_"
+        }
+      ],
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-empty-object-type": "off",
     },
   },
 ];

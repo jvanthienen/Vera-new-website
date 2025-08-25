@@ -3,7 +3,7 @@ import { Star, HalfStar } from "@/components/showcase/star";
 
 export function Showcase() {
   return (
-    <div className="relative mx-auto mt-12 mb-8 grid w-fit grid-cols-3 gap-8 md:my-24 md:gap-20">
+    <div className="relative mx-auto mt-2 mb-4 grid w-fit grid-cols-3 gap-6 md:mt-4 md:mb-8 md:gap-16">
       <Wreath>
         <p className="mb-0.5 text-[0.625rem] md:text-base">Rating</p>
         <div className="flex items-center text-amber-400 [&>svg]:size-2.5 md:[&>svg]:size-5">

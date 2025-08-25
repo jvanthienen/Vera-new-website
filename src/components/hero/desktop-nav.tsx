@@ -33,7 +33,7 @@ export function DesktopNav({ items, className }: Props) {
         </NavigationMenuList>
       </NavigationMenu>
       <Button asChild>
-        <Link href="/pricing">Get Started</Link>
+        <Link href="https://apps.apple.com/us/app/vera-your-human-design-guide/id6748094016" target="_blank" rel="noopener noreferrer">Download the app</Link>
       </Button>
     </nav>
   );

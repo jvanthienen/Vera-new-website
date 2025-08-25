@@ -7,12 +7,12 @@ const navItems = [
     href: "/#features",
   },
   {
-    label: "Pricing",
-    href: "/pricing",
+    label: "Chart",
+    href: "/#chart-form",
   },
   {
-    label: "Legal",
-    href: "/terms-and-conditions",
+    label: "Blog",
+    href: "/blog",
   },
 ];
 

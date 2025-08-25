@@ -3,7 +3,7 @@ import React from "react";
 export function Quote() {
   return (
     <figure className="mx-auto flex max-w-3xl flex-col items-center px-4 py-12 text-center">
-      <blockquote className="text-3xl leading-[1.1] font-medium tracking-tighter text-balance md:text-5xl md:text-wrap">
+      <blockquote className="font-serif text-3xl leading-[1.1] font-bold tracking-tighter text-balance md:text-5xl md:text-wrap">
         <span>&quot;Since the first day we us</span>
         <span className="text-muted-foreground/50">
           ed Acme, we knew we&apos;d never go back to spreadsheets again.&quot;
