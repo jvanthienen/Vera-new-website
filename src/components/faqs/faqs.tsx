@@ -53,7 +53,7 @@ export function FAQs() {
           <AccordionTriggerFAQs>What is Human Design?</AccordionTriggerFAQs>
           <AccordionContentFAQs>
             <p>
-              Human Design is a system that combines ancient wisdom (Astrology, I'Ching, Kabbalah, Chakras) with modern science to give you a personalized map of how you're built to make decisions, use your energy, and live in alignment with who you are. It's like a blueprint for your authentic self.
+              Human Design is a system that combines ancient wisdom (Astrology, I&apos;Ching, Kabbalah, Chakras) with modern science to give you a personalized map of how you&apos;re built to make decisions, use your energy, and live in alignment with who you are. It&apos;s like a blueprint for your authentic self.
             </p>
             <p className="mt-2">
               If you want to know more, <Link href="/blog" className="text-foreground underline">explore our blog</Link>.
@@ -90,12 +90,12 @@ export function FAQs() {
           <AccordionTriggerFAQs>Is the app accessible for beginners?</AccordionTriggerFAQs>
           <AccordionContentFAQs>
             <p>
-              Absolutely. Vera is designed to translate the often complex language of Human Design into a practical, empowering, and easy-to-understand format. Even if you're new to Human Design, you'll be able to understand and apply what you learn right away.
+              Absolutely. Vera is designed to translate the often complex language of Human Design into a practical, empowering, and easy-to-understand format. Even if you&apos;re new to Human Design, you&apos;ll be able to understand and apply what you learn right away.
             </p>
           </AccordionContentFAQs>
         </AccordionItemFAQs>
         <AccordionItemFAQs value="experienced-users">
-          <AccordionTriggerFAQs>Is Vera useful if I've already been studying my chart?</AccordionTriggerFAQs>
+          <AccordionTriggerFAQs>Is Vera useful if I&apos;ve already been studying my chart?</AccordionTriggerFAQs>
           <AccordionContentFAQs>
             <p>
               Yes! Many experienced Human Design readers use Vera—both for themselves and their clients. They love having the essential elements of their design all in one place, with guidance they can return to again and again to stay aligned.
@@ -106,7 +106,7 @@ export function FAQs() {
           <AccordionTriggerFAQs>Do I need to know my exact birth time?</AccordionTriggerFAQs>
           <AccordionContentFAQs>
             <p>
-              Yes, to generate the most accurate chart you'll need your birth date, place, and exact time. If you're unsure, you can often find it on your birth certificate or request it from the hospital where you were born.
+              Yes, to generate the most accurate chart you&apos;ll need your birth date, place, and exact time. If you&apos;re unsure, you can often find it on your birth certificate or request it from the hospital where you were born.
             </p>
           </AccordionContentFAQs>
         </AccordionItemFAQs>
@@ -122,7 +122,7 @@ export function FAQs() {
           <AccordionTriggerFAQs>What makes Vera different from other Human Design apps?</AccordionTriggerFAQs>
           <AccordionContentFAQs>
             <p>
-              Vera is designed to be practical and grounded. It's not about overwhelming you with information—it's about helping you embody your design. With challenges, journaling, mantras, and AI chat, Vera supports you in actually practicing your chart instead of just reading about it.
+              Vera is designed to be practical and grounded. It&apos;s not about overwhelming you with information—it&apos;s about helping you embody your design. With challenges, journaling, mantras, and AI chat, Vera supports you in actually practicing your chart instead of just reading about it.
             </p>
           </AccordionContentFAQs>
         </AccordionItemFAQs>
@@ -130,7 +130,7 @@ export function FAQs() {
           <AccordionTriggerFAQs>Can I access Vera offline?</AccordionTriggerFAQs>
           <AccordionContentFAQs>
             <p>
-              You'll need an internet connection to generate your chart and use the AI chat. But once your chart is created, you can return to it anytime.
+              You&apos;ll need an internet connection to generate your chart and use the AI chat. But once your chart is created, you can return to it anytime.
             </p>
           </AccordionContentFAQs>
         </AccordionItemFAQs>
@@ -138,7 +138,7 @@ export function FAQs() {
           <AccordionTriggerFAQs>Is Vera available on iOS and Android?</AccordionTriggerFAQs>
           <AccordionContentFAQs>
             <p>
-              Currently Vera is available on iOS (App Store). We're working on expanding to other platforms.
+              Currently Vera is available on iOS (App Store). We&apos;re working on expanding to other platforms.
             </p>
           </AccordionContentFAQs>
         </AccordionItemFAQs>

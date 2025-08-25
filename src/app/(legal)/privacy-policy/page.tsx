@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
         
         <p className="text-sm text-muted-foreground mb-8"><strong>Last updated July 21, 2025</strong></p>
         
-        <p>This Privacy Notice for Kasegu LLC ("<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>"), describes how and why we might access, collect, store, use, and/or share ("<strong>process</strong>") your personal information when you use our services ("<strong>Services</strong>"), including when you:</p>
+        <p>This Privacy Notice for Kasegu LLC (&quot;<strong>we</strong>,&quot; &quot;<strong>us</strong>,&quot; or &quot;<strong>our</strong>&quot;), describes how and why we might access, collect, store, use, and/or share (&quot;<strong>process</strong>&quot;) your personal information when you use our services (&quot;<strong>Services</strong>&quot;), including when you:</p>
         
         <ul>
           <li>Download and use our mobile application (Vera - your Human Design guide), or any other application of ours that links to this Privacy Notice</li>
