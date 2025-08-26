@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Vera - your human design guide",
-  description: "Vera is your human design guide. It's a free app that helps you understand your human design and how to live your best life.",
+  title: "Human Design App for Self-Discovery & Alignment | Vera",
+  description: "Unlock your unique Human Design blueprint with Vera. Gain clarity, make aligned decisions, and live with ease. Start your journey today.",
   icons: {
     icon: "/vera-logo-favicon.png",
     shortcut: "/vera-logo-favicon.png",

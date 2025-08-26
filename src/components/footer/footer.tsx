@@ -1,5 +1,5 @@
 import { FooterBlur } from "@/components/footer/footer-blur";
-import { XIcon, TikTokIcon, InstagramIcon } from "@/components/footer/icons";
+import { TikTokIcon, InstagramIcon } from "@/components/footer/icons";
 import Link from "next/link";
 
 const links = [
@@ -48,16 +48,7 @@ const links = [
   {
     title: "Follow Us",
     links: [
-      {
-        label: (
-          <div className="flex items-center gap-2">
-            <XIcon className="h-4 w-4" />
-            <span>Twitter</span>
-          </div>
-        ),
-        href: "https://x.com/",
-        title: "Follow us on Twitter",
-      },
+      
       {
         label: (
           <div className="flex items-center gap-2">

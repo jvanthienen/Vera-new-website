@@ -23,7 +23,7 @@ export function Hero() {
           </p>
         </Pill>
         <h1 className="font-serif text-center text-3xl leading-[1.1] font-bold tracking-tight sm:text-5xl">
-          Transform your life<span className="text-muted-foreground block text-xl sm:text-3xl"> by practicing your Human Design.</span>
+          Discover Your Human Design Blueprint for Aligned Living
         </h1>
         <p className="max-w-lg text-center leading-5 tracking-tight sm:text-lg">
           Discover your unique chart and unlock your full potential.

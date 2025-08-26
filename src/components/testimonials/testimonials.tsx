@@ -83,10 +83,10 @@ export function Testimonials() {
         Testimonial
       </Badge>
       <h2 className="font-serif text-center text-3xl leading-[1.1] font-bold tracking-tight sm:text-5xl">
-        Don&apos;t Take<div className="text-muted-foreground">Our Word for It</div>
+        Hear it from<div className="text-muted-foreground">our Community</div>
       </h2>
       <p className="mb-3 max-w-lg text-center leading-6 tracking-tight sm:text-xl lg:mb-8">
-        Real stories from people discovering their authentic path through Human Design
+      See how Vera is helping people make decisions and live more authentically.
       </p>
       <div className="relative w-[calc(100%+3rem)] overflow-x-hidden py-4 lg:w-full">
         <TestimonialMarquee testimonials={testimonials} className="mb-4" />
