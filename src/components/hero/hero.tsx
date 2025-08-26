@@ -22,11 +22,16 @@ export function Hero() {
         
           </p>
         </Pill>
-        <h1 className="font-serif text-center text-3xl leading-[1.1] font-bold tracking-tight sm:text-5xl">
-          Discover Your Human Design Blueprint for Aligned Living
-        </h1>
+        <div className="text-center">
+          <h1 className="font-serif text-3xl leading-[1.1] font-bold tracking-tight sm:text-5xl">
+            Transform your life
+          </h1>
+          <p className="font-serif text-lg font-bold tracking-tight mt-2 sm:text-3xl">
+            with Human Design
+          </p>
+        </div>
         <p className="max-w-lg text-center leading-5 tracking-tight sm:text-lg">
-          Discover your unique chart and unlock your full potential.
+          Discover your unique chart and unlock your full potential. 
         </p>
         <HumanDesignForm />
         <div className="mt-4">
