@@ -27,7 +27,7 @@ export interface PlaceDetails {
   timezone: string;
 }
 
-const BACKEND_API_URL = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_BACKEND_API_URL || "http://localhost:8000";
+const BACKEND_API_URL = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_BACKEND_API_URL || "https://vera.up.railway.app";
 
 export function useLocationAutocomplete() {
   const [suggestions, setSuggestions] = useState<PlacePrediction[]>([]);

@@ -78,7 +78,7 @@ export function HumanDesignForm() {
       };
 
       // Call the backend API
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://vera.up.railway.app';
       const response = await fetch(`${apiUrl}/api/v1/onboarding/calculate-temporary-chart`, {
         method: 'POST',
         headers: {
