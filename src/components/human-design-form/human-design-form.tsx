@@ -34,6 +34,8 @@ export function HumanDesignForm() {
   });
   
   const [locationData, setLocationData] = useState<LocationData>({});
+  const [isCalculating, setIsCalculating] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
 
   const handleInputChange = (field: keyof FormData, value: string) => {
@@ -49,23 +51,72 @@ export function HumanDesignForm() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Create URL parameters from form data
-    const params = new URLSearchParams();
-    Object.entries(formData).forEach(([key, value]) => {
-      if (value) params.append(key, value);
-    });
-    
-    // Add location data if available
-    if (locationData.lat) params.append("lat", locationData.lat.toString());
-    if (locationData.lng) params.append("lng", locationData.lng.toString());
-    if (locationData.timezone) params.append("timezone", locationData.timezone);
-    if (locationData.formattedAddress) params.append("formattedAddress", locationData.formattedAddress);
-    
-    // Navigate to chart page with form data
-    router.push(`/chart?${params.toString()}`);
+    setError(null);
+    setIsCalculating(true);
+
+    try {
+      // Validate required fields
+      if (!formData.firstName || !formData.birthCity || !formData.birthDate || !formData.email) {
+        throw new Error("Please fill in all required fields");
+      }
+
+      if (!locationData.lat || !locationData.lng || !locationData.timezone) {
+        throw new Error("Please select a valid location from the dropdown");
+      }
+
+      // Prepare the request data for the backend API
+      const birthTime = formData.birthTime || "unknown";
+      const requestBody = {
+        birth_date: formData.birthDate,
+        birth_time: birthTime === "" ? "unknown" : `${birthTime}:00`, // Add seconds if not present
+        birth_location: locationData.formattedAddress || formData.birthCity,
+        latitude: locationData.lat,
+        longitude: locationData.lng,
+        timezone: locationData.timezone,
+      };
+
+      // Call the backend API
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${apiUrl}/api/v1/onboarding/calculate-temporary-chart`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Chart calculation failed: ${response.status} ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      console.log('Chart calculation API response:', result);
+      console.log('Temporary chart ID from API:', result.temporary_chart_id);
+
+      // Navigate to chart page with temporary chart ID and form data
+      const params = new URLSearchParams();
+      params.append("temporaryChartId", result.temporary_chart_id);
+      Object.entries(formData).forEach(([key, value]) => {
+        if (value) params.append(key, value);
+      });
+      
+      // Add location data
+      if (locationData.lat) params.append("lat", locationData.lat.toString());
+      if (locationData.lng) params.append("lng", locationData.lng.toString());
+      if (locationData.timezone) params.append("timezone", locationData.timezone);
+      if (locationData.formattedAddress) params.append("formattedAddress", locationData.formattedAddress);
+
+      const chartUrl = `/chart?${params.toString()}`;
+      console.log('Navigating to chart URL:', chartUrl);
+      router.push(chartUrl);
+    } catch (err) {
+      console.error("Chart calculation error:", err);
+      setError(err instanceof Error ? err.message : "Failed to calculate chart");
+    } finally {
+      setIsCalculating(false);
+    }
   };
 
   const canSubmit = Object.values(formData).every(value => value.trim() !== "");
@@ -162,20 +213,29 @@ export function HumanDesignForm() {
             </div>
           </div>
 
+          {/* Error Display */}
+          {error && (
+            <div className="flex justify-center mt-4">
+              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg max-w-md">
+                {error}
+              </div>
+            </div>
+          )}
+
           {/* Submit Button */}
           <div className="flex justify-center mt-8">
             <Button
               type="submit"
-              disabled={!canSubmit}
+              disabled={!canSubmit || isCalculating}
               className={cn(
                 "px-8 py-3 font-button transition-all duration-200",
-                canSubmit
+                canSubmit && !isCalculating
                   ? "bg-vera-primary hover:bg-vera-primary/90 text-vera-background border-vera-primary"
                   : "bg-vera-accent opacity-50 cursor-not-allowed border-vera-accent text-vera-text"
               )}
               suppressHydrationWarning
             >
-              GET YOUR CHART
+              {isCalculating ? "CALCULATING..." : "GET YOUR CHART"}
             </Button>
           </div>
         </form>

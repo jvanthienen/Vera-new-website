@@ -16,7 +16,10 @@ function ChartPageContent() {
     email: searchParams?.get('email') || '',
   };
 
-  return <ChartResults formData={formData} />;
+  // Get temporary chart ID if it exists
+  const temporaryChartId = searchParams?.get('temporaryChartId') || '';
+
+  return <ChartResults formData={formData} temporaryChartId={temporaryChartId} />;
 }
 
 export default function ChartPage() {

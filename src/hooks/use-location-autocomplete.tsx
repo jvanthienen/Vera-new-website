@@ -27,7 +27,7 @@ export interface PlaceDetails {
   timezone: string;
 }
 
-const BACKEND_API_URL = process.env.NEXT_PUBLIC_BACKEND_API_URL || "https://vera.up.railway.app";
+const BACKEND_API_URL = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_BACKEND_API_URL || "http://localhost:8000";
 
 export function useLocationAutocomplete() {
   const [suggestions, setSuggestions] = useState<PlacePrediction[]>([]);
@@ -80,9 +80,11 @@ export function useLocationAutocomplete() {
           trimmedInput
         )}&types=(cities)&language=en`;
         
+        console.log("🌐 Making request to URL:", url);
         const response = await fetch(url, {
           signal: abortControllerRef.current.signal
         });
+        console.log("📡 Response received:", response.status, response.statusText);
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -98,11 +100,14 @@ export function useLocationAutocomplete() {
           throw new Error(`API error: ${data.status}`);
         }
       } catch (err) {
+        console.error("❌ Fetch error:", err);
         // Don't set error for aborted requests
         if (err instanceof Error && err.name === 'AbortError') {
           return;
         }
-        setError(err instanceof Error ? err.message : "Failed to fetch suggestions");
+        const errorMessage = err instanceof Error ? err.message : "Failed to fetch suggestions";
+        console.error("🚨 Setting error:", errorMessage);
+        setError(errorMessage);
         setSuggestions([]);
       } finally {
         setIsLoading(false);
