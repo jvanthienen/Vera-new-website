@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import posthog from "posthog-js";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { LocationAutocomplete } from "@/components/ui/location-autocomplete";
@@ -30,16 +31,15 @@ export function HumanDesignForm() {
     birthCity: "",
     birthDate: "",
     birthTime: "",
-    email: ""
+    email: "",
   });
-  
+
   const [locationData, setLocationData] = useState<LocationData>({});
   const [isCalculating, setIsCalculating] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-
   const handleInputChange = (field: keyof FormData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handlePlaceSelect = (placeDetails: PlaceDetails) => {
@@ -53,6 +53,10 @@ export function HumanDesignForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    posthog.capture("chart_calculation_submitted", {
+      birth_time_provided: !!formData.birthTime,
+      location_selected_from_autocomplete: !!locationData.lat,
+    });
     setError(null);
     setIsCalculating(true);
 
@@ -78,11 +82,11 @@ export function HumanDesignForm() {
       };
 
       // Call the backend API
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://vera.up.railway.app';
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://vera.up.railway.app";
       const response = await fetch(`${apiUrl}/api/v1/onboarding/calculate-temporary-chart`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(requestBody),
       });
@@ -92,8 +96,8 @@ export function HumanDesignForm() {
       }
 
       const result = await response.json();
-      console.log('Chart calculation API response:', result);
-      console.log('Temporary chart ID from API:', result.temporary_chart_id);
+      console.log("Chart calculation API response:", result);
+      console.log("Temporary chart ID from API:", result.temporary_chart_id);
 
       // Navigate to chart page with temporary chart ID and form data
       const params = new URLSearchParams();
@@ -101,7 +105,7 @@ export function HumanDesignForm() {
       Object.entries(formData).forEach(([key, value]) => {
         if (value) params.append(key, value);
       });
-      
+
       // Add location data
       if (locationData.lat) params.append("lat", locationData.lat.toString());
       if (locationData.lng) params.append("lng", locationData.lng.toString());
@@ -109,30 +113,29 @@ export function HumanDesignForm() {
       if (locationData.formattedAddress) params.append("formattedAddress", locationData.formattedAddress);
 
       const chartUrl = `/chart?${params.toString()}`;
-      console.log('Navigating to chart URL:', chartUrl);
+      console.log("Navigating to chart URL:", chartUrl);
       router.push(chartUrl);
     } catch (err) {
       console.error("Chart calculation error:", err);
-      setError(err instanceof Error ? err.message : "Failed to calculate chart");
+      const errorMessage = err instanceof Error ? err.message : "Failed to calculate chart";
+      posthog.capture("chart_calculation_failed", {
+        error_message: errorMessage,
+      });
+      setError(errorMessage);
     } finally {
       setIsCalculating(false);
     }
   };
 
-  const canSubmit = Object.values(formData).every(value => value.trim() !== "");
+  const canSubmit = Object.values(formData).every((value) => value.trim() !== "");
 
   return (
-    <div 
-      id="chart-form" 
-      className="w-full px-4 mb-8 scroll-mt-8"
-    >
-      <div className="max-w-4xl mx-auto text-center">
-        
-
+    <div id="chart-form" className="mb-8 w-full scroll-mt-8 px-4">
+      <div className="mx-auto max-w-4xl text-center">
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-8" suppressHydrationWarning>
           {/* First Name Row */}
-          <div className="flex flex-col md:flex-row gap-6 items-center justify-center">
+          <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
             <div className="flex items-center gap-4">
               <span className="font-body text-vera-success whitespace-nowrap">I&apos;m</span>
               <div className="relative">
@@ -141,7 +144,7 @@ export function HumanDesignForm() {
                   placeholder="first name"
                   value={formData.firstName}
                   onChange={(e) => handleInputChange("firstName", e.target.value)}
-                  className="w-48 bg-transparent border-0 border-b-2 border-vera-success rounded-none px-0 pb-1 text-center font-body text-vera-success placeholder:text-vera-accent focus-visible:ring-0 focus-visible:border-vera-primary"
+                  className="border-vera-success font-body text-vera-success placeholder:text-vera-accent focus-visible:border-vera-primary w-48 rounded-none border-0 border-b-2 bg-transparent px-0 pb-1 text-center focus-visible:ring-0"
                   suppressHydrationWarning
                 />
               </div>
@@ -150,7 +153,7 @@ export function HumanDesignForm() {
           </div>
 
           {/* Birth Information Row */}
-          <div className="flex flex-col md:flex-row gap-6 items-center justify-center">
+          <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
             {/* "I was born in" */}
             <div className="flex items-center gap-4">
               <span className="font-body text-vera-success whitespace-nowrap">I was born in</span>
@@ -173,7 +176,7 @@ export function HumanDesignForm() {
                   type="date"
                   value={formData.birthDate}
                   onChange={(e) => handleInputChange("birthDate", e.target.value)}
-                  className="w-48 bg-transparent border-0 border-b-2 border-vera-success rounded-none px-0 pb-1 text-center font-body text-vera-success focus-visible:ring-0 focus-visible:border-vera-primary"
+                  className="border-vera-success font-body text-vera-success focus-visible:border-vera-primary w-48 rounded-none border-0 border-b-2 bg-transparent px-0 pb-1 text-center focus-visible:ring-0"
                   suppressHydrationWarning
                 />
               </div>
@@ -187,7 +190,7 @@ export function HumanDesignForm() {
                   type="time"
                   value={formData.birthTime}
                   onChange={(e) => handleInputChange("birthTime", e.target.value)}
-                  className="w-32 bg-transparent border-0 border-b-2 border-vera-success rounded-none px-0 pb-1 text-center font-body text-vera-success focus-visible:ring-0 focus-visible:border-vera-primary"
+                  className="border-vera-success font-body text-vera-success focus-visible:border-vera-primary w-32 rounded-none border-0 border-b-2 bg-transparent px-0 pb-1 text-center focus-visible:ring-0"
                   suppressHydrationWarning
                 />
               </div>
@@ -196,7 +199,7 @@ export function HumanDesignForm() {
           </div>
 
           {/* Email Row */}
-          <div className="flex flex-col md:flex-row gap-6 items-center justify-center">
+          <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
             <div className="flex items-center gap-4">
               <span className="font-body text-vera-success whitespace-nowrap">My email is</span>
               <div className="relative">
@@ -205,7 +208,7 @@ export function HumanDesignForm() {
                   placeholder="email address"
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
-                  className="w-64 bg-transparent border-0 border-b-2 border-vera-success rounded-none px-0 pb-1 text-center font-body text-vera-success placeholder:text-vera-accent focus-visible:ring-0 focus-visible:border-vera-primary"
+                  className="border-vera-success font-body text-vera-success placeholder:text-vera-accent focus-visible:border-vera-primary w-64 rounded-none border-0 border-b-2 bg-transparent px-0 pb-1 text-center focus-visible:ring-0"
                   suppressHydrationWarning
                 />
               </div>
@@ -215,23 +218,21 @@ export function HumanDesignForm() {
 
           {/* Error Display */}
           {error && (
-            <div className="flex justify-center mt-4">
-              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg max-w-md">
-                {error}
-              </div>
+            <div className="mt-4 flex justify-center">
+              <div className="max-w-md rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-700">{error}</div>
             </div>
           )}
 
           {/* Submit Button */}
-          <div className="flex justify-center mt-8">
+          <div className="mt-8 flex justify-center">
             <Button
               type="submit"
               disabled={!canSubmit || isCalculating}
               className={cn(
-                "px-8 py-3 font-button transition-all duration-200",
+                "font-button px-8 py-3 transition-all duration-200",
                 canSubmit && !isCalculating
                   ? "bg-vera-primary hover:bg-vera-primary/90 text-vera-background border-vera-primary"
-                  : "bg-vera-accent opacity-50 cursor-not-allowed border-vera-accent text-vera-text"
+                  : "bg-vera-accent border-vera-accent text-vera-text cursor-not-allowed opacity-50",
               )}
               suppressHydrationWarning
             >

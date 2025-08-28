@@ -3,6 +3,7 @@ import { CheckoutOpenLineItem, initializePaddle, type Environments, type Paddle,
 import type { CheckoutEventsData } from "@paddle/paddle-js/types/checkout/events";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import posthog from "posthog-js";
 
 export type UsePaddleArgs = {
   checkoutQueryParams: CheckoutQueryParams;
@@ -56,6 +57,11 @@ export function usePaddle(args: UsePaddleArgs) {
         environment,
         eventCallback: (event) => {
           if (event.name === "checkout.completed") {
+            posthog.capture("paddle_checkout_completed", {
+              transaction_id: event.data?.transaction_id,
+              paddle_customer_id: event.data?.customer?.id,
+              app_user_id: appUserId,
+            });
             // Get current URL parameters and merge with new ones
             const currentParams = new URLSearchParams(window.location.search);
             const searchParams = new URLSearchParams({
