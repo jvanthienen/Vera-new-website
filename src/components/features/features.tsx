@@ -39,17 +39,17 @@ const features = [
 
 export function Features() {
   return (
-    <div id="features" className="flex w-full flex-col items-center gap-6 px-6 py-14 md:px-10 md:py-25">
-      <Badge variant="secondary" className="uppercase">
+    <div id="features" className="flex w-full flex-col items-center gap-4 px-4 py-12 sm:gap-6 sm:px-6 sm:py-14 md:px-10 lg:py-25">
+      <Badge variant="secondary" className="uppercase text-xs sm:text-sm">
         Features
       </Badge>
-      <h2 className="font-serif text-center text-3xl leading-[1.1] font-bold tracking-tight sm:text-5xl">
+      <h2 className="font-serif text-center text-2xl leading-[1.1] font-bold tracking-tight sm:text-3xl lg:text-5xl px-2">
         Discover how<div className="text-muted-foreground">Vera helps you</div>
       </h2>
-      <p className="mb-3 max-w-lg text-center leading-6 tracking-tight sm:text-xl lg:mb-8">
+      <p className="mb-3 max-w-lg text-center leading-6 tracking-tight text-sm sm:text-base lg:text-xl lg:mb-8 px-4">
         We want everyone to transform their life by practicing their Human Design.
       </p>
-      <FeaturesCarousel features={features} className="block lg:hidden" />
+      <FeaturesCarousel features={features} className="block lg:hidden w-full" />
       <FeaturesTabs features={features} className="hidden lg:block" />
     </div>
   );

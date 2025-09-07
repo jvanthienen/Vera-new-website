@@ -75,19 +75,20 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="relative -mt-25 overflow-hidden py-12 pt-37 md:py-25 md:pt-37">
+    <footer className="relative -mt-16 sm:-mt-20 lg:-mt-25 overflow-hidden py-8 pt-20 sm:py-12 sm:pt-24 lg:py-25 lg:pt-37">
       <FooterBlur />
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-8 px-6 tracking-tight md:grid-cols-3">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 px-4 tracking-tight sm:grid-cols-2 sm:gap-8 sm:px-6 lg:grid-cols-3">
         {links.map((link) => (
-          <div key={link.title} className="mb-10 text-center">
-            <h3 className="font-serif text-muted-foreground mb-8 font-medium">{link.title}</h3>
-            <ul className="flex flex-col items-center gap-8">
+          <div key={link.title} className="mb-6 text-center sm:mb-10">
+            <h3 className="font-serif text-muted-foreground mb-4 font-medium text-sm sm:text-base sm:mb-6 lg:mb-8">{link.title}</h3>
+            <ul className="flex flex-col items-center gap-4 sm:gap-6 lg:gap-8">
               {link.links.map((link, index) => (
                 <li key={index}>
                   <Link
                     href={link.href}
                     title={link.title}
                     target={link.href.startsWith("https://") ? "_blank" : undefined}
+                    className="text-sm sm:text-base hover:text-vera-primary transition-colors duration-200 block py-1"
                   >
                     {link.label}
                   </Link>

@@ -1,0 +1,49 @@
+{
+  "name": "Vera - Human Design Guide",
+  "short_name": "Vera",
+  "description": "Unlock your unique Human Design blueprint with Vera. Gain clarity, make aligned decisions, and live with ease.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFDF",
+  "theme_color": "#FFFFDF",
+  "orientation": "portrait-primary",
+  "categories": ["lifestyle", "health", "productivity"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/vera-logo-favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/vera-logo-favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-chart-rightsize.png",
+      "sizes": "280x480",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Get Your Chart",
+      "short_name": "Chart",
+      "description": "Calculate your Human Design chart",
+      "url": "/#chart-form",
+      "icons": [
+        {
+          "src": "/vera-logo-favicon.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

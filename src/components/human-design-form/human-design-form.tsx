@@ -136,15 +136,15 @@ export function HumanDesignForm() {
         <form onSubmit={handleSubmit} className="space-y-8" suppressHydrationWarning>
           {/* First Name Row */}
           <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
-            <div className="flex items-center gap-4">
-              <span className="font-body text-vera-success whitespace-nowrap">I&apos;m</span>
+            <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4 w-full max-w-md">
+              <span className="font-body text-vera-success whitespace-nowrap text-right">I&apos;m</span>
               <div className="relative">
                 <Input
                   type="text"
                   placeholder="first name"
                   value={formData.firstName}
                   onChange={(e) => handleInputChange("firstName", e.target.value)}
-                  className="border-vera-success font-body text-vera-success placeholder:text-vera-accent focus-visible:border-vera-primary w-48 rounded-none border-0 border-b-2 bg-transparent px-0 pb-1 text-center focus-visible:ring-0"
+                  className="border-vera-success font-body text-vera-success placeholder:text-vera-accent focus-visible:border-vera-primary w-full rounded-none border-0 border-b-2 bg-transparent px-0 pb-1 text-center focus-visible:ring-0"
                   suppressHydrationWarning
                 />
               </div>
@@ -152,45 +152,43 @@ export function HumanDesignForm() {
             </div>
           </div>
 
-          {/* Birth Information Row */}
+          {/* Birth City Row */}
           <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
-            {/* "I was born in" */}
-            <div className="flex items-center gap-4">
-              <span className="font-body text-vera-success whitespace-nowrap">I was born in</span>
+            <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4 w-full max-w-md">
+              <span className="font-body text-vera-success whitespace-nowrap text-right">I was born in</span>
               <div className="relative">
                 <LocationAutocomplete
                   value={formData.birthCity}
                   onChange={(value) => handleInputChange("birthCity", value)}
                   onPlaceSelect={handlePlaceSelect}
                   placeholder="a city"
-                  inputClassName="w-64 bg-transparent border-0 border-b-2 border-vera-success rounded-none px-0 pb-1 text-center font-body text-vera-success placeholder:text-vera-accent focus-visible:ring-0 focus-visible:border-vera-primary"
+                  inputClassName="w-full bg-transparent border-0 border-b-2 border-vera-success rounded-none px-0 pb-1 text-center font-body text-vera-success placeholder:text-vera-accent focus-visible:ring-0 focus-visible:border-vera-primary"
                 />
               </div>
+              <span className="font-body text-vera-success invisible">.</span>
             </div>
+          </div>
 
-            {/* Date Input */}
-            <div className="flex items-center gap-4">
-              <span className="font-body text-vera-success whitespace-nowrap">on</span>
+          {/* Birth Date and Time Row */}
+          <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
+            <div className="grid grid-cols-[auto_1fr_auto_1fr_auto] items-center gap-4 w-full max-w-2xl">
+              <span className="font-body text-vera-success whitespace-nowrap text-right">on</span>
               <div className="relative">
                 <Input
                   type="date"
                   value={formData.birthDate}
                   onChange={(e) => handleInputChange("birthDate", e.target.value)}
-                  className="border-vera-success font-body text-vera-success focus-visible:border-vera-primary w-48 rounded-none border-0 border-b-2 bg-transparent px-0 pb-1 text-center focus-visible:ring-0"
+                  className="border-vera-success font-body text-vera-success focus-visible:border-vera-primary w-full rounded-none border-0 border-b-2 bg-transparent px-0 pb-1 text-center focus-visible:ring-0 centered-date-input"
                   suppressHydrationWarning
                 />
               </div>
-            </div>
-
-            {/* Time Input */}
-            <div className="flex items-center gap-4">
               <span className="font-body text-vera-success whitespace-nowrap">at</span>
               <div className="relative">
                 <Input
                   type="time"
                   value={formData.birthTime}
                   onChange={(e) => handleInputChange("birthTime", e.target.value)}
-                  className="border-vera-success font-body text-vera-success focus-visible:border-vera-primary w-32 rounded-none border-0 border-b-2 bg-transparent px-0 pb-1 text-center focus-visible:ring-0"
+                  className="border-vera-success font-body text-vera-success focus-visible:border-vera-primary w-full rounded-none border-0 border-b-2 bg-transparent px-0 pb-1 text-center focus-visible:ring-0 centered-time-input"
                   suppressHydrationWarning
                 />
               </div>
@@ -200,15 +198,15 @@ export function HumanDesignForm() {
 
           {/* Email Row */}
           <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
-            <div className="flex items-center gap-4">
-              <span className="font-body text-vera-success whitespace-nowrap">My email is</span>
+            <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4 w-full max-w-md">
+              <span className="font-body text-vera-success whitespace-nowrap text-right">My email is</span>
               <div className="relative">
                 <Input
                   type="email"
                   placeholder="email address"
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
-                  className="border-vera-success font-body text-vera-success placeholder:text-vera-accent focus-visible:border-vera-primary w-64 rounded-none border-0 border-b-2 bg-transparent px-0 pb-1 text-center focus-visible:ring-0"
+                  className="border-vera-success font-body text-vera-success placeholder:text-vera-accent focus-visible:border-vera-primary w-full rounded-none border-0 border-b-2 bg-transparent px-0 pb-1 text-center focus-visible:ring-0"
                   suppressHydrationWarning
                 />
               </div>

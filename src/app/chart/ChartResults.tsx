@@ -4,7 +4,14 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { BackgroundBlur } from "@/components/ui/background-blur";
-import { User, Circle, X, ChevronRight, Mail } from "lucide-react";
+import { 
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { User, Circle, ChevronRight, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -554,153 +561,147 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
             </p>
           </div>
         </div>
+      </div>
 
-        {/* App Download Prompt Modal */}
-        {showAppPrompt && (
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-6 z-50">
-            <div className="bg-vera-background/95 backdrop-blur-md border border-vera-success rounded-2xl p-8 max-w-md w-full relative shadow-2xl">
-              <button
-                onClick={() => setShowAppPrompt(false)}
-                className="absolute top-4 right-4 text-vera-accent hover:text-vera-text transition-colors"
-              >
-                <X className="w-6 h-6" />
-              </button>
+      {/* App Download Prompt Modal */}
+      <Dialog open={showAppPrompt} onOpenChange={setShowAppPrompt}>
+          <DialogContent 
+            className="bg-vera-background/95 backdrop-blur-md border border-vera-success sm:max-w-md [&>button]:bg-white/20 [&>button]:text-vera-text [&>button]:hover:bg-white/30 [&>button]:z-50"
+            showCloseButton={true}
+          >
+            <div className="text-center">
+              <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Image src="/logo-light.svg" alt="Vera logo" width={48} height={48} className="w-12 h-12" />
+              </div>
 
-              <div className="text-center">
-                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Image src="/logo-light.svg" alt="Vera logo" width={48} height={48} className="w-12 h-12" />
-                </div>
-
-                <h3 className="font-serif text-2xl font-bold tracking-tight text-vera-text mb-4">
+              <DialogHeader>
+                <DialogTitle className="font-serif text-2xl font-bold tracking-tight text-vera-text mb-4 text-center">
                   Get your full personalized Chart in your pocket
-                </h3>
-
-                <p className="text-vera-accent leading-6 tracking-tight mb-8 text-center">
+                </DialogTitle>
+                <DialogDescription className="text-vera-accent leading-6 tracking-tight mb-8 text-center">
                   Your chart helps you illuminate who you really are, how to be yourself, your gifts, the places you are most likely to get off track, and how to navigate the world.
-                </p>
+                </DialogDescription>
+              </DialogHeader>
 
-                {/* What's Included Section */}
-                <div className="bg-vera-background-secondary/40 backdrop-blur-sm border border-vera-success/50 rounded-2xl p-6 mb-6">
-                  <h4 className="text-vera-text font-medium text-sm uppercase tracking-wide mb-6 text-center">
-                    What&apos;s Included
-                  </h4>
-                  
-                  <div className="space-y-4">
-                    <div className="text-center">
-                      <h5 className="text-vera-text font-medium text-base mb-2">Full Personalized Human Design Chart</h5>
-                      <p className="text-vera-accent text-sm leading-relaxed">
-                      </p>
-                    </div>
+              {/* What's Included Section */}
+              <div className="bg-vera-background-secondary/40 backdrop-blur-sm border border-vera-success/50 rounded-2xl p-6 mb-6">
+                <h4 className="text-vera-text font-medium text-sm uppercase tracking-wide mb-6 text-center">
+                  What&apos;s Included
+                </h4>
+                
+                <div className="space-y-4">
+                  <div className="text-center">
+                    <h5 className="text-vera-text font-medium text-base mb-2">Full Personalized Human Design Chart</h5>
+                    <p className="text-vera-accent text-sm leading-relaxed">
+                    </p>
+                  </div>
 
-                    <div className="text-center">
-                      <h5 className="text-vera-text font-medium text-base mb-2">Accurate Coach</h5>
-                      <p className="text-vera-accent text-sm leading-relaxed">
-                      </p>
-                    </div>
+                  <div className="text-center">
+                    <h5 className="text-vera-text font-medium text-base mb-2">Accurate Coach</h5>
+                    <p className="text-vera-accent text-sm leading-relaxed">
+                    </p>
+                  </div>
 
-                    <div className="text-center">
-                      <h5 className="text-vera-text font-medium text-base mb-2">Relationship Insights</h5>
-                      <p className="text-vera-accent text-sm leading-relaxed">
-                      </p>
-                    </div>
+                  <div className="text-center">
+                    <h5 className="text-vera-text font-medium text-base mb-2">Relationship Insights</h5>
+                    <p className="text-vera-accent text-sm leading-relaxed">
+                    </p>
+                  </div>
 
-                    <div className="text-center">
-                      <h5 className="text-vera-text font-medium text-base mb-2">Daily Journal & Practices</h5>
-                      <p className="text-vera-accent text-sm leading-relaxed">
-                      </p>
-                    </div>
+                  <div className="text-center">
+                    <h5 className="text-vera-text font-medium text-base mb-2">Daily Journal & Practices</h5>
+                    <p className="text-vera-accent text-sm leading-relaxed">
+                    </p>
                   </div>
                 </div>
+              </div>
 
-                <div className="space-y-3">
-                  {/* App Store Button */}
-                  <Button 
-                    className="w-full bg-vera-primary hover:bg-vera-primary/90 text-black py-6 text-lg rounded-xl flex items-center justify-center gap-2 shadow-lg font-medium"
-                    onClick={() => window.open('https://apps.apple.com/us/app/vera-your-human-design-guide/id6748094016', '_blank')}
-                  >
-                    <span className="text-lg">📱</span>
-                    Download from App Store
-                  </Button>
-                  
-                  <Button 
-                    variant="ghost"
-                    className="w-full text-vera-accent hover:text-vera-text"
-                    onClick={() => {
-                      setShowAppPrompt(false);
-                      setShowEmailCapture(true);
-                    }}
-                  >
-                    Maybe later
-                  </Button>
-                </div>
+              <div className="space-y-3">
+                {/* App Store Button */}
+                <Button 
+                  className="w-full bg-vera-primary hover:bg-vera-primary/90 text-black py-6 text-lg rounded-xl flex items-center justify-center gap-2 shadow-lg font-medium"
+                  onClick={() => window.open('https://apps.apple.com/us/app/vera-your-human-design-guide/id6748094016', '_blank')}
+                >
+                  <span className="text-lg">📱</span>
+                  Download from App Store
+                </Button>
+                
+                <Button 
+                  variant="ghost"
+                  className="w-full text-vera-accent hover:text-vera-text"
+                  onClick={() => {
+                    setShowAppPrompt(false);
+                    setShowEmailCapture(true);
+                  }}
+                >
+                  Maybe later
+                </Button>
               </div>
             </div>
-          </div>
-        )}
+          </DialogContent>
+      </Dialog>
 
-        {/* Email Capture Modal */}
-        {showEmailCapture && (
-          <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-6 z-50">
-            <div className="bg-card border border-border rounded-2xl p-8 max-w-md w-full relative">
-              <button
-                onClick={() => setShowEmailCapture(false)}
-                className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <X className="w-6 h-6" />
-              </button>
+      {/* Email Capture Modal */}
+      <Dialog open={showEmailCapture} onOpenChange={setShowEmailCapture}>
+          <DialogContent 
+            className="bg-card border border-border sm:max-w-md [&>button]:bg-muted/20 [&>button]:text-foreground [&>button]:hover:bg-muted/40 [&>button]:z-50"
+            showCloseButton={true}
+          >
+            <div className="text-center">
+              <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Mail className="w-8 h-8 text-secondary-foreground" />
+              </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Mail className="w-8 h-8 text-secondary-foreground" />
-                </div>
-
-                <h3 className="font-serif text-2xl font-bold tracking-tight text-foreground mb-4">
+              <DialogHeader>
+                <DialogTitle className="font-serif text-2xl font-bold tracking-tight text-foreground mb-4 text-center">
                   Stay connected with your journey
-                </h3>
-
-                <p className="text-muted-foreground leading-6 tracking-tight mb-6">
+                </DialogTitle>
+                <DialogDescription className="text-muted-foreground leading-6 tracking-tight mb-6 text-center">
                   Get personalized Human Design insights, tips, and guidance delivered to your inbox. We&apos;ll help you understand your blueprint better.
-                </p>
+                </DialogDescription>
+              </DialogHeader>
 
-                <div className="space-y-4">
-                  <Input
-                    type="email"
-                    placeholder="Enter your email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full"
-                  />
-                  
-                  <Button 
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-xl"
-                    onClick={() => {
-                      // TODO: Handle email submission
-                      console.log('Email submitted:', email);
-                      setShowEmailCapture(false);
-                      setEmail('');
-                    }}
-                    disabled={!email || !email.includes('@')}
-                  >
-                    Send me insights
-                  </Button>
-                  
-                  <Button 
-                    variant="ghost"
-                    className="w-full text-muted-foreground hover:text-foreground text-sm"
-                    onClick={() => setShowEmailCapture(false)}
-                  >
-                    No thanks
-                  </Button>
-                </div>
-
-                <p className="text-muted-foreground/70 text-xs mt-4">
-                  We respect your privacy. Unsubscribe at any time.
-                </p>
+              <div className="space-y-4">
+                <Input
+                  type="email"
+                  placeholder="Enter your email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full"
+                />
+                
+                <Button 
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-xl"
+                  onClick={() => {
+                    // TODO: Handle email submission
+                    console.log('Email submitted:', email);
+                    setShowEmailCapture(false);
+                    setEmail('');
+                  }}
+                  disabled={!email || !email.includes('@')}
+                >
+                  Send me insights
+                </Button>
+                
+                <Button 
+                  variant="ghost"
+                  className="w-full text-muted-foreground hover:text-foreground text-sm"
+                  onClick={() => setShowEmailCapture(false)}
+                >
+                  No thanks
+                </Button>
               </div>
+
+              <p className="text-muted-foreground/70 text-xs mt-4">
+                We respect your privacy. Unsubscribe at any time.
+              </p>
             </div>
-          </div>
-        )}
-      </div>
+          </DialogContent>
+      </Dialog>
     </div>
   );
 }
+
+
+
+
