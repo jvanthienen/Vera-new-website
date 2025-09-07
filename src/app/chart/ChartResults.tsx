@@ -11,7 +11,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { User, Circle, ChevronRight, Mail } from "lucide-react";
+import { User, Circle, ChevronRight, Mail, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -236,7 +236,10 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
             {/* Blueprint Cards */}
             <div className="space-y-4">
               {/* Energy Type Card */}
-              <div className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+              <div 
+                className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                onClick={() => setShowAppPrompt(true)}
+              >
                 <div className="mb-3">
                   <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2">
                     YOU&apos;RE A {chartData?.energyType?.toUpperCase() || 'LOADING...'}
@@ -263,7 +266,10 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
               </div>
 
               {/* Authority Card */}
-              <div className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+              <div 
+                className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                onClick={() => setShowAppPrompt(true)}
+              >
                 <div className="mb-3">
                   <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2">
                     YOUR AUTHORITY IS {chartData?.authority?.toUpperCase() || 'LOADING...'}
@@ -290,7 +296,10 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
               </div>
 
               {/* Strategy Card */}
-              <div className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+              <div 
+                className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                onClick={() => setShowAppPrompt(true)}
+              >
                 <div className="mb-3">
                   <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2">
                     YOUR STRATEGY IS {chartData?.strategy?.toUpperCase() || 'LOADING...'}
@@ -317,7 +326,10 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
               </div>
 
               {/* Profile Card */}
-              <div className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+              <div 
+                className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                onClick={() => setShowAppPrompt(true)}
+              >
                 <div className="mb-3">
                   <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2">
                     YOUR PROFILE IS {chartData?.profile || 'LOADING...'}
@@ -344,7 +356,10 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
               </div>
 
               {/* Self Theme Card */}
-              <div className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+              <div 
+                className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                onClick={() => setShowAppPrompt(true)}
+              >
                 <div className="mb-3">
                   <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2">
                     YOUR SIGNATURE IS {chartData?.signature?.toUpperCase() || 'LOADING...'}
@@ -368,7 +383,10 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
               </div>
 
               {/* Not Self Theme Card */}
-              <div className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+              <div 
+                className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                onClick={() => setShowAppPrompt(true)}
+              >
                 <div className="mb-3">
                   <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2">
                     YOUR NOT SELF THEME IS {chartData?.notSelfTheme?.toUpperCase() || 'LOADING...'}
@@ -433,7 +451,11 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                     { name: 'SPLEEN CENTER', status: 'OPEN', description: 'Your intuition, health, and survival.' },
                     { name: 'ROOT CENTER', status: 'OPEN', description: 'Your drive and pressure to get things done.' }
                   ].map((center, index) => (
-                    <div key={index} className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+                    <div 
+                      key={index} 
+                      className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                      onClick={() => setShowAppPrompt(true)}
+                    >
                       <div className="mb-2">
                         <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2 flex items-center gap-2">
                           <Circle className="w-3 h-3" />
@@ -456,7 +478,11 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                 
                 // Display all centers from the API (should be 9)
                 return centers.map((center, index) => (
-                  <div key={index} className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+                  <div 
+                    key={index} 
+                    className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                    onClick={() => setShowAppPrompt(true)}
+                  >
                     <div className="mb-2">
                       <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2 flex items-center gap-2">
                         <Circle className="w-3 h-3" />
@@ -503,7 +529,10 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                 const channels = getChannelData();
                 if (channels.length === 0) {
                   return (
-                    <div className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+                    <div 
+                      className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                      onClick={() => setShowAppPrompt(true)}
+                    >
                       <div className="mb-2">
                         <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2 flex items-center gap-2">
                           <Circle className="w-3 h-3" />
@@ -525,7 +554,11 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                 }
                 
                 return channels.map((channel, index) => (
-                  <div key={index} className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+                  <div 
+                    key={index} 
+                    className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                    onClick={() => setShowAppPrompt(true)}
+                  >
                     <div className="mb-2">
                       <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2 flex items-center gap-2">
                         <Circle className="w-3 h-3" />
@@ -566,9 +599,17 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
       {/* App Download Prompt Modal */}
       <Dialog open={showAppPrompt} onOpenChange={setShowAppPrompt}>
           <DialogContent 
-            className="bg-vera-background/95 backdrop-blur-md border border-vera-success sm:max-w-md [&>button]:bg-white/20 [&>button]:text-vera-text [&>button]:hover:bg-white/30 [&>button]:z-50"
-            showCloseButton={true}
+            className="bg-vera-background/95 backdrop-blur-md border border-vera-success sm:max-w-md"
+            showCloseButton={false}
           >
+            {/* Custom Close Button */}
+            <button
+              onClick={() => setShowAppPrompt(false)}
+              className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-vera-text transition-colors z-10"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            
             <div className="text-center">
               <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Image src="/logo-light.svg" alt="Vera logo" width={48} height={48} className="w-12 h-12" />
@@ -622,7 +663,7 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                   className="w-full bg-vera-primary hover:bg-vera-primary/90 text-black py-6 text-lg rounded-xl flex items-center justify-center gap-2 shadow-lg font-medium"
                   onClick={() => window.open('https://apps.apple.com/us/app/vera-your-human-design-guide/id6748094016', '_blank')}
                 >
-                  <span className="text-lg">📱</span>
+                  <span className="text-lg"></span>
                   Download from App Store
                 </Button>
                 
@@ -644,9 +685,17 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
       {/* Email Capture Modal */}
       <Dialog open={showEmailCapture} onOpenChange={setShowEmailCapture}>
           <DialogContent 
-            className="bg-card border border-border sm:max-w-md [&>button]:bg-muted/20 [&>button]:text-foreground [&>button]:hover:bg-muted/40 [&>button]:z-50"
-            showCloseButton={true}
+            className="bg-card border border-border sm:max-w-md"
+            showCloseButton={false}
           >
+            {/* Custom Close Button */}
+            <button
+              onClick={() => setShowEmailCapture(false)}
+              className="absolute top-4 right-4 p-2 rounded-full bg-muted/20 hover:bg-muted/40 text-foreground transition-colors z-10"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            
             <div className="text-center">
               <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Mail className="w-8 h-8 text-secondary-foreground" />
