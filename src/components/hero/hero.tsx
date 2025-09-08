@@ -2,9 +2,7 @@ import { Nav } from "@/components/hero/nav";
 import { BackgroundBlur } from "@/components/ui/background-blur";
 import { HumanDesignForm } from "@/components/human-design-form/human-design-form";
 import { Pill, PillAvatar, PillAvatarGroup } from "@/components/ui/pill";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import Link from "next/link";
 
 export function Hero() {
   return (

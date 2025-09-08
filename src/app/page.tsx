@@ -1,13 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { FAQs } from "@/components/faqs/faqs";
-import { Features } from "@/components/features/features";
 import { Footer } from "@/components/footer/footer";
 import { Hero } from "@/components/hero/hero";
 import { HumanDesignForm } from "@/components/human-design-form/human-design-form";
 import { Showcase } from "@/components/showcase/showcase";
-import { Testimonials } from "@/components/testimonials/testimonials";
 import { useRedirectWarning } from "@/lib/redirect";
 
 // Dynamically import components that are below the fold for better mobile performance
