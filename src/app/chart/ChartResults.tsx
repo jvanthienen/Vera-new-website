@@ -208,9 +208,21 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
       <div className="relative z-10">
         {/* Header with birth details */}
         <div className="px-6 py-8 text-center">
-          <h1 className="font-serif text-center text-3xl leading-[1.1] font-bold tracking-tight sm:text-5xl mb-3">
-            {formData.firstName ? `${formData.firstName}'s Human Design Chart` : 'Your human design breakdown'}
-          </h1>
+            <h1 className="font-serif text-center text-3xl leading-[1.1] font-bold tracking-tight sm:text-5xl mb-3">
+              {formData.firstName ? (
+                <>
+                  {formData.firstName}&apos;s free Human Design chart
+                  <br />
+                  <span className="text-2xl sm:text-3xl">Your Energy Blueprint explained</span>
+                </>
+              ) : (
+                <>
+                  Free Human Design Chart
+                  <br />
+                  <span className="text-2xl sm:text-3xl">Your Energy Blueprint Explained</span>
+                </>
+              )}
+            </h1>
           <div className="text-muted-foreground text-center text-sm mx-auto max-w-md">
             {chartData?.energyType || 'Loading...'} • {formatBirthDate()} • {formatBirthTime()} • {formData.birthCity}
           </div>
@@ -251,7 +263,7 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                         return typeElement.description;
                       }
                       return chartData?.energyType === 'Manifesting Generator' 
-                        ? "You are a multi passionate powerhouse. Your many interests and talents aren't distractions, they're your greatest gifts."
+                        ? "You are a multi passionate powerhouse. Your many interests and talents aren&apos;t distractions, they&apos;re your greatest gifts."
                         : `Your energy type is ${chartData?.energyType || 'Loading...'}. This determines how your energy works and how you're designed to move through life.`;
                     })()}
                   </h2>
@@ -281,7 +293,7 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                         return authorityElement.description;
                       }
                       return chartData?.authority === 'Sacral' 
-                        ? "Trust your gut instincts and yes/no responses. Your body knows what's right for you before your mind does."
+                        ? "Trust your gut instincts and yes/no responses. Your body knows what&apos;s right for you before your mind does."
                         : `Your inner authority is ${chartData?.authority || 'Loading...'}. This is how you're designed to make decisions.`;
                     })()}
                   </h2>
@@ -368,7 +380,7 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                     {(() => {
                       // Self theme content might not be in elements, use fallback
                       return chartData?.signature === 'Satisfaction' 
-                        ? "When you're living in alignment, you feel satisfied and fulfilled. This is your sign that you're on the right path."
+                        ? "When you&apos;re living in alignment, you feel satisfied and fulfilled. This is your sign that you&apos;re on the right path."
                         : `Your signature theme is ${chartData?.signature || 'Loading...'}. This is how you feel when you're living authentically.`;
                     })()}
                   </h2>
@@ -398,7 +410,7 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                         return notSelfElement.description;
                       }
                       return chartData?.notSelfTheme === 'Feeling Uninspired' 
-                        ? "When you're out of alignment, you may feel uninspired or frustrated. This is your signal to return to your strategy."
+                        ? "When you&apos;re out of alignment, you may feel uninspired or frustrated. This is your signal to return to your strategy."
                         : `Your not-self theme is ${chartData?.notSelfTheme || 'Loading...'}. This is how you feel when you're not living authentically.`;
                     })()}
                   </h2>

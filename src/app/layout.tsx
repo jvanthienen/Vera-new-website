@@ -14,8 +14,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Human Design App for Self-Discovery & Alignment | Vera",
-  description: "Unlock your unique Human Design blueprint with Vera. Gain clarity, make aligned decisions, and live with ease. Start your journey today.",
+  title: "Human Design App for Self-Discovery & Growth | Vera",
+  description: "Discover your Human Design chart with Vera. Get AI-powered guidance, daily practices, and insights to transform your life. Download the app today.",
   keywords: ["Human Design", "Self-Discovery", "Personal Growth", "Alignment", "Chart Reading", "Life Coaching"],
   authors: [{ name: "Vera Team" }],
   creator: "Vera",
@@ -57,8 +57,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://vera.app",
-    title: "Human Design App for Self-Discovery & Alignment | Vera",
-    description: "Unlock your unique Human Design blueprint with Vera. Gain clarity, make aligned decisions, and live with ease. Start your journey today.",
+    title: "Human Design App for Self-Discovery & Growth | Vera",
+    description: "Discover your Human Design chart with Vera. Get AI-powered guidance, daily practices, and insights to transform your life. Download the app today.",
     siteName: "Vera",
     images: [
       {
@@ -71,8 +71,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Human Design App for Self-Discovery & Alignment | Vera",
-    description: "Unlock your unique Human Design blueprint with Vera. Gain clarity, make aligned decisions, and live with ease. Start your journey today.",
+    title: "Human Design App for Self-Discovery & Growth | Vera",
+    description: "Discover your Human Design chart with Vera. Get AI-powered guidance, daily practices, and insights to transform your life. Download the app today.",
     images: ["/screenshot-chart-rightsize.png"],
   },
 };

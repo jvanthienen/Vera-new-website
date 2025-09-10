@@ -6,8 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Learn Human Design - Free Guides & Insights | Vera",
-  description: "Learn Human Design with our comprehensive guides, insights, and practical tips. Discover your Energy Type, Strategy, Authority, and more.",
+  title: "Human Design Blog with Guides and Insights | Vera",
+  description: "Explore Human Design blog articles packed with insights, guides, and tips. Learn how to apply Human Design daily and start living in alignment today.",
   metadataBase: new URL('https://vera-new-website.vercel.app'),
   alternates: {
     canonical: 'https://vera-new-website.vercel.app/blog',
@@ -25,15 +25,15 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    title: "Learn Human Design - Free Guides & Insights | Vera",
-    description: "Learn Human Design with our comprehensive guides, insights, and practical tips. Discover your Energy Type, Strategy, Authority, and more.",
+    title: "Human Design Blog with Guides and Insights | Vera",
+    description: "Explore Human Design blog articles packed with insights, guides, and tips. Learn how to apply Human Design daily and start living in alignment today.",
     url: 'https://vera-new-website.vercel.app/blog',
     siteName: 'Vera',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Learn Human Design - Free Guides & Insights | Vera",
-    description: "Learn Human Design with our comprehensive guides, insights, and practical tips. Discover your Energy Type, Strategy, Authority, and more.",
+    title: "Human Design Blog with Guides and Insights | Vera",
+    description: "Explore Human Design blog articles packed with insights, guides, and tips. Learn how to apply Human Design daily and start living in alignment today.",
   },
 };
 
@@ -55,7 +55,7 @@ export default async function BlogIndex() {
             Blog
           </Badge>
           <h1 className="font-serif text-center text-3xl leading-[1.1] font-bold tracking-tight sm:text-5xl">
-            Learn Human Design<div className="text-muted-foreground">Insights & Guides</div>
+            Human Design Blog: Insights, Guides, and Practical Tips
           </h1>
           <p className="mb-3 max-w-lg text-center leading-6 tracking-tight sm:text-xl lg:mb-8">
             Discover your unique blueprint with our comprehensive guides, insights, and practical tips for living your Human Design.

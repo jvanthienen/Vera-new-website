@@ -25,11 +25,8 @@ export function Hero() {
         {/* Hero Title - Improved mobile typography */}
         <div className="text-center px-2 space-y-2">
           <h1 className="font-serif text-2xl leading-tight font-bold tracking-tight sm:text-3xl lg:text-5xl lg:leading-[1.1]">
-            Transform your life
+            Human Design App <br />to Discover Your Chart & Live Aligned
           </h1>
-          <p className="font-serif text-lg font-bold tracking-tight sm:text-xl lg:text-3xl">
-            with Human Design
-          </p>
         </div>
         
         {/* Description - Better mobile spacing */}
