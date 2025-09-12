@@ -1,4 +1,5 @@
 import { Drawer, DrawerContent, DrawerTrigger, DrawerTitle } from "@/components/ui/drawer";
+import { PromoRibbon } from "@/components/ui/promo-ribbon";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
 import Image from "next/image";
@@ -43,13 +44,29 @@ export function MobileNav({ items, className }: Props) {
             </Link>
           ))}
           {/* Download App Button */}
-          <Link 
-            href="https://apps.apple.com/us/app/vera-your-human-design-guide/id6748094016" 
-            target="_blank" 
+          <PromoRibbon className="mt-4">
+            <Link 
+              href="https://apps.apple.com/us/app/vera-your-human-design-guide/id6748094016" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 mobile-touch-target"
+            >
+              Download the app
+            </Link>
+          </PromoRibbon>
+          
+          {/* Product Hunt Button */}
+          <Link
+            href="https://www.producthunt.com/products/human-design-app-vera?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-human&#0045;design&#0045;app&#0045;vera"
+            target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex h-12 items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 mobile-touch-target"
+            className="mt-3 inline-flex h-12 items-center justify-center rounded-md transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 mobile-touch-target"
           >
-            Download the app
+            <img 
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1015460&theme=light&t=1757645025302" 
+              alt="Human Design App: Vera - Unique personality insights to guide smarter life decisions. | Product Hunt" 
+              className="h-12 w-auto"
+            />
           </Link>
         </DrawerContent>
       </Drawer>

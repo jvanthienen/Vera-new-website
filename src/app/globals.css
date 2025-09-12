@@ -710,3 +710,247 @@ input[type="time"]:not(:focus) {
   text-align: center !important;
   text-align-last: center !important;
 }
+
+/* Vera Blog Content Styling - Matching Website Typography */
+.vera-blog-content {
+  /* Base text styling using Vera's typography system */
+  font-family: var(--font-general-sans);
+  color: var(--foreground);
+  line-height: 1.6;
+}
+
+/* Headings using Sentient font family */
+.vera-blog-content h1 {
+  font-family: var(--font-sentient);
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 2rem 0 1rem 0;
+  tracking: -0.025em;
+  text-balance: balance;
+}
+
+.vera-blog-content h2 {
+  font-family: var(--font-sentient);
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 1.75rem 0 0.75rem 0;
+  tracking: -0.025em;
+  text-balance: balance;
+}
+
+.vera-blog-content h3 {
+  font-family: var(--font-sentient);
+  font-size: 20px;
+  line-height: 25px;
+  font-weight: 500;
+  color: var(--foreground);
+  margin: 1.5rem 0 0.5rem 0;
+  tracking: -0.025em;
+  text-balance: balance;
+}
+
+.vera-blog-content h4 {
+  font-family: var(--font-sentient);
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: 500;
+  color: var(--foreground);
+  margin: 1.25rem 0 0.5rem 0;
+  tracking: -0.025em;
+}
+
+.vera-blog-content h5,
+.vera-blog-content h6 {
+  font-family: var(--font-general-sans);
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 1rem 0 0.5rem 0;
+  tracking: -0.025em;
+}
+
+/* Paragraphs using GeneralSans body styling */
+.vera-blog-content p {
+  font-family: var(--font-general-sans);
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--foreground);
+  margin: 0 0 1.25rem 0;
+}
+
+/* Lists */
+.vera-blog-content ul,
+.vera-blog-content ol {
+  font-family: var(--font-general-sans);
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--foreground);
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.vera-blog-content li {
+  margin: 0.5rem 0;
+  color: var(--foreground);
+}
+
+.vera-blog-content li::marker {
+  color: var(--primary);
+}
+
+/* Links */
+.vera-blog-content a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s ease;
+}
+
+.vera-blog-content a:hover {
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+/* Blockquotes */
+.vera-blog-content blockquote {
+  border-left: 4px solid var(--primary);
+  background-color: var(--muted);
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-style: italic;
+  color: var(--foreground);
+}
+
+.vera-blog-content blockquote p {
+  margin: 0;
+}
+
+/* Code blocks and inline code */
+.vera-blog-content code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", monospace;
+  font-size: 0.9em;
+  background-color: var(--muted);
+  color: var(--foreground);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--border);
+}
+
+.vera-blog-content pre {
+  background-color: var(--muted);
+  color: var(--foreground);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+}
+
+.vera-blog-content pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+/* Images */
+.vera-blog-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* Tables */
+.vera-blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-family: var(--font-general-sans);
+  font-size: 15px;
+}
+
+.vera-blog-content th,
+.vera-blog-content td {
+  border: 1px solid var(--border);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.vera-blog-content th {
+  background-color: var(--muted);
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.vera-blog-content td {
+  color: var(--foreground);
+}
+
+/* Horizontal rules */
+.vera-blog-content hr {
+  border: none;
+  height: 1px;
+  background-color: var(--border);
+  margin: 2rem 0;
+}
+
+/* Strong and emphasis */
+.vera-blog-content strong,
+.vera-blog-content b {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.vera-blog-content em,
+.vera-blog-content i {
+  font-style: italic;
+  color: var(--foreground);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .vera-blog-content h1 {
+    font-size: 24px;
+    line-height: 30px;
+    margin: 1.5rem 0 0.75rem 0;
+  }
+  
+  .vera-blog-content h2 {
+    font-size: 20px;
+    line-height: 26px;
+    margin: 1.25rem 0 0.5rem 0;
+  }
+  
+  .vera-blog-content h3 {
+    font-size: 18px;
+    line-height: 23px;
+    margin: 1rem 0 0.5rem 0;
+  }
+  
+  .vera-blog-content p,
+  .vera-blog-content ul,
+  .vera-blog-content ol {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .vera-blog-content blockquote {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+  }
+  
+  .vera-blog-content img {
+    margin: 1.5rem 0;
+  }
+}
