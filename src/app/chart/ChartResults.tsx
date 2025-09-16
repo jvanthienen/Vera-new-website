@@ -4,7 +4,14 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { BackgroundBlur } from "@/components/ui/background-blur";
-import { User, Circle, X, ChevronRight, Mail } from "lucide-react";
+import { 
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { User, Circle, ChevronRight, Mail, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -201,9 +208,21 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
       <div className="relative z-10">
         {/* Header with birth details */}
         <div className="px-6 py-8 text-center">
-          <h1 className="font-serif text-center text-3xl leading-[1.1] font-bold tracking-tight sm:text-5xl mb-3">
-            {formData.firstName ? `${formData.firstName}'s Human Design Chart` : 'Your human design breakdown'}
-          </h1>
+            <h1 className="font-serif text-center text-3xl leading-[1.1] font-bold tracking-tight sm:text-5xl mb-3">
+              {formData.firstName ? (
+                <>
+                  {formData.firstName}&apos;s free Human Design chart
+                  <br />
+                  <span className="text-2xl sm:text-3xl">Your Energy Blueprint explained</span>
+                </>
+              ) : (
+                <>
+                  Free Human Design Chart
+                  <br />
+                  <span className="text-2xl sm:text-3xl">Your Energy Blueprint Explained</span>
+                </>
+              )}
+            </h1>
           <div className="text-muted-foreground text-center text-sm mx-auto max-w-md">
             {chartData?.energyType || 'Loading...'} • {formatBirthDate()} • {formatBirthTime()} • {formData.birthCity}
           </div>
@@ -229,7 +248,10 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
             {/* Blueprint Cards */}
             <div className="space-y-4">
               {/* Energy Type Card */}
-              <div className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+              <div 
+                className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                onClick={() => setShowAppPrompt(true)}
+              >
                 <div className="mb-3">
                   <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2">
                     YOU&apos;RE A {chartData?.energyType?.toUpperCase() || 'LOADING...'}
@@ -241,7 +263,7 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                         return typeElement.description;
                       }
                       return chartData?.energyType === 'Manifesting Generator' 
-                        ? "You are a multi passionate powerhouse. Your many interests and talents aren't distractions, they're your greatest gifts."
+                        ? "You are a multi passionate powerhouse. Your many interests and talents aren&apos;t distractions, they&apos;re your greatest gifts."
                         : `Your energy type is ${chartData?.energyType || 'Loading...'}. This determines how your energy works and how you're designed to move through life.`;
                     })()}
                   </h2>
@@ -256,7 +278,10 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
               </div>
 
               {/* Authority Card */}
-              <div className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+              <div 
+                className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                onClick={() => setShowAppPrompt(true)}
+              >
                 <div className="mb-3">
                   <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2">
                     YOUR AUTHORITY IS {chartData?.authority?.toUpperCase() || 'LOADING...'}
@@ -268,7 +293,7 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                         return authorityElement.description;
                       }
                       return chartData?.authority === 'Sacral' 
-                        ? "Trust your gut instincts and yes/no responses. Your body knows what's right for you before your mind does."
+                        ? "Trust your gut instincts and yes/no responses. Your body knows what&apos;s right for you before your mind does."
                         : `Your inner authority is ${chartData?.authority || 'Loading...'}. This is how you're designed to make decisions.`;
                     })()}
                   </h2>
@@ -283,7 +308,10 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
               </div>
 
               {/* Strategy Card */}
-              <div className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+              <div 
+                className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                onClick={() => setShowAppPrompt(true)}
+              >
                 <div className="mb-3">
                   <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2">
                     YOUR STRATEGY IS {chartData?.strategy?.toUpperCase() || 'LOADING...'}
@@ -310,7 +338,10 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
               </div>
 
               {/* Profile Card */}
-              <div className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+              <div 
+                className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                onClick={() => setShowAppPrompt(true)}
+              >
                 <div className="mb-3">
                   <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2">
                     YOUR PROFILE IS {chartData?.profile || 'LOADING...'}
@@ -337,7 +368,10 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
               </div>
 
               {/* Self Theme Card */}
-              <div className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+              <div 
+                className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                onClick={() => setShowAppPrompt(true)}
+              >
                 <div className="mb-3">
                   <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2">
                     YOUR SIGNATURE IS {chartData?.signature?.toUpperCase() || 'LOADING...'}
@@ -346,7 +380,7 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                     {(() => {
                       // Self theme content might not be in elements, use fallback
                       return chartData?.signature === 'Satisfaction' 
-                        ? "When you're living in alignment, you feel satisfied and fulfilled. This is your sign that you're on the right path."
+                        ? "When you&apos;re living in alignment, you feel satisfied and fulfilled. This is your sign that you&apos;re on the right path."
                         : `Your signature theme is ${chartData?.signature || 'Loading...'}. This is how you feel when you're living authentically.`;
                     })()}
                   </h2>
@@ -361,7 +395,10 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
               </div>
 
               {/* Not Self Theme Card */}
-              <div className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+              <div 
+                className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                onClick={() => setShowAppPrompt(true)}
+              >
                 <div className="mb-3">
                   <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2">
                     YOUR NOT SELF THEME IS {chartData?.notSelfTheme?.toUpperCase() || 'LOADING...'}
@@ -373,7 +410,7 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                         return notSelfElement.description;
                       }
                       return chartData?.notSelfTheme === 'Feeling Uninspired' 
-                        ? "When you're out of alignment, you may feel uninspired or frustrated. This is your signal to return to your strategy."
+                        ? "When you&apos;re out of alignment, you may feel uninspired or frustrated. This is your signal to return to your strategy."
                         : `Your not-self theme is ${chartData?.notSelfTheme || 'Loading...'}. This is how you feel when you're not living authentically.`;
                     })()}
                   </h2>
@@ -426,7 +463,11 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                     { name: 'SPLEEN CENTER', status: 'OPEN', description: 'Your intuition, health, and survival.' },
                     { name: 'ROOT CENTER', status: 'OPEN', description: 'Your drive and pressure to get things done.' }
                   ].map((center, index) => (
-                    <div key={index} className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+                    <div 
+                      key={index} 
+                      className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                      onClick={() => setShowAppPrompt(true)}
+                    >
                       <div className="mb-2">
                         <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2 flex items-center gap-2">
                           <Circle className="w-3 h-3" />
@@ -449,7 +490,11 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                 
                 // Display all centers from the API (should be 9)
                 return centers.map((center, index) => (
-                  <div key={index} className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+                  <div 
+                    key={index} 
+                    className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                    onClick={() => setShowAppPrompt(true)}
+                  >
                     <div className="mb-2">
                       <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2 flex items-center gap-2">
                         <Circle className="w-3 h-3" />
@@ -496,7 +541,10 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                 const channels = getChannelData();
                 if (channels.length === 0) {
                   return (
-                    <div className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+                    <div 
+                      className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                      onClick={() => setShowAppPrompt(true)}
+                    >
                       <div className="mb-2">
                         <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2 flex items-center gap-2">
                           <Circle className="w-3 h-3" />
@@ -518,7 +566,11 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
                 }
                 
                 return channels.map((channel, index) => (
-                  <div key={index} className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg">
+                  <div 
+                    key={index} 
+                    className="bg-card backdrop-blur-md border border-border rounded-xl p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                    onClick={() => setShowAppPrompt(true)}
+                  >
                     <div className="mb-2">
                       <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide mb-2 flex items-center gap-2">
                         <Circle className="w-3 h-3" />
@@ -554,153 +606,163 @@ export default function ChartResults({ formData, temporaryChartId }: ChartResult
             </p>
           </div>
         </div>
+      </div>
 
-        {/* App Download Prompt Modal */}
-        {showAppPrompt && (
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-6 z-50">
-            <div className="bg-vera-background/95 backdrop-blur-md border border-vera-success rounded-2xl p-8 max-w-md w-full relative shadow-2xl">
-              <button
-                onClick={() => setShowAppPrompt(false)}
-                className="absolute top-4 right-4 text-vera-accent hover:text-vera-text transition-colors"
-              >
-                <X className="w-6 h-6" />
-              </button>
+      {/* App Download Prompt Modal */}
+      <Dialog open={showAppPrompt} onOpenChange={setShowAppPrompt}>
+          <DialogContent 
+            className="bg-vera-background/95 backdrop-blur-md border border-vera-success sm:max-w-md"
+            showCloseButton={false}
+          >
+            {/* Custom Close Button */}
+            <button
+              onClick={() => setShowAppPrompt(false)}
+              className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-vera-text transition-colors z-10"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            
+            <div className="text-center">
+              <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Image src="/logo-light.svg" alt="Vera logo" width={48} height={48} className="w-12 h-12" />
+              </div>
 
-              <div className="text-center">
-                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Image src="/logo-light.svg" alt="Vera logo" width={48} height={48} className="w-12 h-12" />
-                </div>
-
-                <h3 className="font-serif text-2xl font-bold tracking-tight text-vera-text mb-4">
+              <DialogHeader>
+                <DialogTitle className="font-serif text-2xl font-bold tracking-tight text-vera-text mb-4 text-center">
                   Get your full personalized Chart in your pocket
-                </h3>
-
-                <p className="text-vera-accent leading-6 tracking-tight mb-8 text-center">
+                </DialogTitle>
+                <DialogDescription className="text-vera-accent leading-6 tracking-tight mb-8 text-center">
                   Your chart helps you illuminate who you really are, how to be yourself, your gifts, the places you are most likely to get off track, and how to navigate the world.
-                </p>
+                </DialogDescription>
+              </DialogHeader>
 
-                {/* What's Included Section */}
-                <div className="bg-vera-background-secondary/40 backdrop-blur-sm border border-vera-success/50 rounded-2xl p-6 mb-6">
-                  <h4 className="text-vera-text font-medium text-sm uppercase tracking-wide mb-6 text-center">
-                    What&apos;s Included
-                  </h4>
-                  
-                  <div className="space-y-4">
-                    <div className="text-center">
-                      <h5 className="text-vera-text font-medium text-base mb-2">Full Personalized Human Design Chart</h5>
-                      <p className="text-vera-accent text-sm leading-relaxed">
-                      </p>
-                    </div>
+              {/* What's Included Section */}
+              <div className="bg-vera-background-secondary/40 backdrop-blur-sm border border-vera-success/50 rounded-2xl p-6 mb-6">
+                <h4 className="text-vera-text font-medium text-sm uppercase tracking-wide mb-6 text-center">
+                  What&apos;s Included
+                </h4>
+                
+                <div className="space-y-4">
+                  <div className="text-center">
+                    <h5 className="text-vera-text font-medium text-base mb-2">Full Personalized Human Design Chart</h5>
+                    <p className="text-vera-accent text-sm leading-relaxed">
+                    </p>
+                  </div>
 
-                    <div className="text-center">
-                      <h5 className="text-vera-text font-medium text-base mb-2">Accurate Coach</h5>
-                      <p className="text-vera-accent text-sm leading-relaxed">
-                      </p>
-                    </div>
+                  <div className="text-center">
+                    <h5 className="text-vera-text font-medium text-base mb-2">Accurate Coach</h5>
+                    <p className="text-vera-accent text-sm leading-relaxed">
+                    </p>
+                  </div>
 
-                    <div className="text-center">
-                      <h5 className="text-vera-text font-medium text-base mb-2">Relationship Insights</h5>
-                      <p className="text-vera-accent text-sm leading-relaxed">
-                      </p>
-                    </div>
+                  <div className="text-center">
+                    <h5 className="text-vera-text font-medium text-base mb-2">Relationship Insights</h5>
+                    <p className="text-vera-accent text-sm leading-relaxed">
+                    </p>
+                  </div>
 
-                    <div className="text-center">
-                      <h5 className="text-vera-text font-medium text-base mb-2">Daily Journal & Practices</h5>
-                      <p className="text-vera-accent text-sm leading-relaxed">
-                      </p>
-                    </div>
+                  <div className="text-center">
+                    <h5 className="text-vera-text font-medium text-base mb-2">Daily Journal & Practices</h5>
+                    <p className="text-vera-accent text-sm leading-relaxed">
+                    </p>
                   </div>
                 </div>
+              </div>
 
-                <div className="space-y-3">
-                  {/* App Store Button */}
-                  <Button 
-                    className="w-full bg-vera-primary hover:bg-vera-primary/90 text-black py-6 text-lg rounded-xl flex items-center justify-center gap-2 shadow-lg font-medium"
-                    onClick={() => window.open('https://apps.apple.com/us/app/vera-your-human-design-guide/id6748094016', '_blank')}
-                  >
-                    <span className="text-lg">📱</span>
-                    Download from App Store
-                  </Button>
-                  
-                  <Button 
-                    variant="ghost"
-                    className="w-full text-vera-accent hover:text-vera-text"
-                    onClick={() => {
-                      setShowAppPrompt(false);
-                      setShowEmailCapture(true);
-                    }}
-                  >
-                    Maybe later
-                  </Button>
-                </div>
+              <div className="space-y-3">
+                {/* App Store Button */}
+                <Button 
+                  className="w-full bg-vera-primary hover:bg-vera-primary/90 text-black py-6 text-lg rounded-xl flex items-center justify-center gap-2 shadow-lg font-medium"
+                  onClick={() => window.open('https://apps.apple.com/us/app/vera-your-human-design-guide/id6748094016', '_blank')}
+                >
+                  <span className="text-lg"></span>
+                  Download from App Store
+                </Button>
+                
+                <Button 
+                  variant="ghost"
+                  className="w-full text-vera-accent hover:text-vera-text"
+                  onClick={() => {
+                    setShowAppPrompt(false);
+                    setShowEmailCapture(true);
+                  }}
+                >
+                  Maybe later
+                </Button>
               </div>
             </div>
-          </div>
-        )}
+          </DialogContent>
+      </Dialog>
 
-        {/* Email Capture Modal */}
-        {showEmailCapture && (
-          <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-6 z-50">
-            <div className="bg-card border border-border rounded-2xl p-8 max-w-md w-full relative">
-              <button
-                onClick={() => setShowEmailCapture(false)}
-                className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <X className="w-6 h-6" />
-              </button>
+      {/* Email Capture Modal */}
+      <Dialog open={showEmailCapture} onOpenChange={setShowEmailCapture}>
+          <DialogContent 
+            className="bg-card border border-border sm:max-w-md"
+            showCloseButton={false}
+          >
+            {/* Custom Close Button */}
+            <button
+              onClick={() => setShowEmailCapture(false)}
+              className="absolute top-4 right-4 p-2 rounded-full bg-muted/20 hover:bg-muted/40 text-foreground transition-colors z-10"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Mail className="w-8 h-8 text-secondary-foreground" />
+              </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Mail className="w-8 h-8 text-secondary-foreground" />
-                </div>
-
-                <h3 className="font-serif text-2xl font-bold tracking-tight text-foreground mb-4">
+              <DialogHeader>
+                <DialogTitle className="font-serif text-2xl font-bold tracking-tight text-foreground mb-4 text-center">
                   Stay connected with your journey
-                </h3>
-
-                <p className="text-muted-foreground leading-6 tracking-tight mb-6">
+                </DialogTitle>
+                <DialogDescription className="text-muted-foreground leading-6 tracking-tight mb-6 text-center">
                   Get personalized Human Design insights, tips, and guidance delivered to your inbox. We&apos;ll help you understand your blueprint better.
-                </p>
+                </DialogDescription>
+              </DialogHeader>
 
-                <div className="space-y-4">
-                  <Input
-                    type="email"
-                    placeholder="Enter your email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full"
-                  />
-                  
-                  <Button 
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-xl"
-                    onClick={() => {
-                      // TODO: Handle email submission
-                      console.log('Email submitted:', email);
-                      setShowEmailCapture(false);
-                      setEmail('');
-                    }}
-                    disabled={!email || !email.includes('@')}
-                  >
-                    Send me insights
-                  </Button>
-                  
-                  <Button 
-                    variant="ghost"
-                    className="w-full text-muted-foreground hover:text-foreground text-sm"
-                    onClick={() => setShowEmailCapture(false)}
-                  >
-                    No thanks
-                  </Button>
-                </div>
-
-                <p className="text-muted-foreground/70 text-xs mt-4">
-                  We respect your privacy. Unsubscribe at any time.
-                </p>
+              <div className="space-y-4">
+                <Input
+                  type="email"
+                  placeholder="Enter your email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full"
+                />
+                
+                <Button 
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-xl"
+                  onClick={() => {
+                    // TODO: Handle email submission
+                    console.log('Email submitted:', email);
+                    setShowEmailCapture(false);
+                    setEmail('');
+                  }}
+                  disabled={!email || !email.includes('@')}
+                >
+                  Send me insights
+                </Button>
+                
+                <Button 
+                  variant="ghost"
+                  className="w-full text-muted-foreground hover:text-foreground text-sm"
+                  onClick={() => setShowEmailCapture(false)}
+                >
+                  No thanks
+                </Button>
               </div>
+
+              <p className="text-muted-foreground/70 text-xs mt-4">
+                We respect your privacy. Unsubscribe at any time.
+              </p>
             </div>
-          </div>
-        )}
-      </div>
+          </DialogContent>
+      </Dialog>
     </div>
   );
 }
+
+
+
+

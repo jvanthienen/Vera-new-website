@@ -42,3 +42,4 @@ yarn-error.log*
 next-env.d.ts
 
 /documents_and_examples/
+.env.local

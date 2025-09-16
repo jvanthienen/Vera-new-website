@@ -78,17 +78,17 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-6 py-14 md:py-25">
-      <Badge variant="secondary" className="mb-2 uppercase">
+    <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 px-4 py-12 sm:gap-6 sm:px-6 sm:py-14 lg:py-25">
+      <Badge variant="secondary" className="mb-2 uppercase text-xs sm:text-sm">
         Testimonial
       </Badge>
-      <h2 className="font-serif text-center text-3xl leading-[1.1] font-bold tracking-tight sm:text-5xl">
+      <h2 className="font-serif text-center text-2xl leading-[1.1] font-bold tracking-tight sm:text-3xl lg:text-5xl px-2">
         Hear it from<div className="text-muted-foreground">our Community</div>
       </h2>
-      <p className="mb-3 max-w-lg text-center leading-6 tracking-tight sm:text-xl lg:mb-8">
+      <p className="mb-3 max-w-lg text-center leading-6 tracking-tight text-sm sm:text-base lg:text-xl lg:mb-8 px-4">
       See how Vera is helping people make decisions and live more authentically.
       </p>
-      <div className="relative w-[calc(100%+3rem)] overflow-x-hidden py-4 lg:w-full">
+      <div className="relative w-[calc(100%+1.5rem)] sm:w-[calc(100%+3rem)] overflow-x-hidden py-4 lg:w-full">
         <TestimonialMarquee testimonials={testimonials} className="mb-4" />
         <TestimonialMarquee testimonials={testimonials} reverse />
       </div>

@@ -13,9 +13,9 @@ export function FeatureDetails({ feature }: FeatureDetailsProps) {
       <div className="w-fit">
         {icon}
       </div>
-      <div className="text-center">
-        <p className="mb-2 text-base font-serif font-medium">{title}</p>
-        <p className="text-muted-foreground text-sm text-wrap">{description}</p>
+      <div className="text-center px-2">
+        <p className="mb-2 text-sm sm:text-base font-serif font-medium leading-tight">{title}</p>
+        <p className="text-muted-foreground text-xs sm:text-sm text-wrap leading-relaxed">{description}</p>
       </div>
     </>
   );
