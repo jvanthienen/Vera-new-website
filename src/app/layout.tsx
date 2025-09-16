@@ -39,12 +39,12 @@ export const metadata: Metadata = {
   colorScheme: "light dark",
   icons: {
     icon: [
-      { url: "/vera-logo-favicon.png", sizes: "32x32", type: "image/png" },
-      { url: "/vera-logo-favicon.png", sizes: "16x16", type: "image/png" },
+      { url: "/vera-logo-favicon.png?v=2", sizes: "32x32", type: "image/png" },
+      { url: "/vera-logo-favicon.png?v=2", sizes: "16x16", type: "image/png" },
     ],
-    shortcut: "/vera-logo-favicon.png",
+    shortcut: "/vera-logo-favicon.png?v=2",
     apple: [
-      { url: "/vera-logo-favicon.png", sizes: "180x180", type: "image/png" },
+      { url: "/vera-logo-favicon.png?v=2", sizes: "180x180", type: "image/png" },
     ],
   },
   manifest: "/manifest.json",
